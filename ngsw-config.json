@@ -1,0 +1,61 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js",
+          "/assets/**"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://fonts.gstatic.com/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "itunes-api",
+      "urls": ["https://itunes.apple.com/**"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "timeout": "5s",
+        "maxSize": 100,
+        "maxAge": "24h"
+      }
+    },
+    {
+      "name": "musicbrainz-api",
+      "urls": ["https://musicbrainz.org/**"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "timeout": "5s",
+        "maxSize": 50,
+        "maxAge": "12h"
+      }
+    },
+    {
+      "name": "itunes-images",
+      "urls": [
+        "https://is1-ssl.mzstatic.com/**",
+        "https://is2-ssl.mzstatic.com/**",
+        "https://is3-ssl.mzstatic.com/**",
+        "https://is4-ssl.mzstatic.com/**",
+        "https://is5-ssl.mzstatic.com/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 200,
+        "maxAge": "30d"
+      }
+    }
+  ]
+}
